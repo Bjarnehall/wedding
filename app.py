@@ -1,10 +1,31 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Hello, Flask! Get ready for wedding"
+    return render_template(
+        "index.html"
+    )
+
+@app.route("/information")
+def info():
+    return render_template(
+        "info.html"
+    )
+
+@app.route("/location")
+def location():
+    return render_template(
+        "location.html"
+    )
+
+@app.route("/sign_up")
+def sign_up():
+    return render_template(
+        "sign_up.html"
+    )
+
 
 if __name__ == "__main__":
     app.run(debug=True)

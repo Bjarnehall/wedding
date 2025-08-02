@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Hanna & Jonas Bröllop</title>
+    <style>
+        body {
+            background-color: #faf2e4;
+            margin: 0 10%;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: serif;
+            font-weight: normal;
+            text-transform: uppercase;
+            border-bottom: 1px solid #57b1dc;
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #000000;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Jonas & Hanna<br>2026.08.29</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Start</a></li>
+            <li><a href="{{ url_for('info') }}">info</a></li>
+            <li><a href="{{ url_for('sign_up') }}">Anmäl här</a></li>
+            <li><a href="{{ url_for('location') }}">Hitta hit</a></li>
+        </ul>
+    </nav>
+    </header>
