@@ -2,38 +2,25 @@
 <html lang="sv">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
 <title>Hanna & Jonas Bröllop</title>
-    <style>
-        body {
-            background-color: #faf2e4;
-            margin: 0 10%;
-            font-family: sans-serif;
-        }
 
-        h1 {
-            text-align: center;
-            font-family: serif;
-            font-weight: normal;
-            text-transform: uppercase;
-            border-bottom: 1px solid #57b1dc;
-            margin-top: 30px;
-        }
-
-        h2 {
-            color: #000000;
-            font-size: 1.5em;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Jonas & Hanna<br>2026.08.29</h1>
-    <nav>
-        <ul>
-            <li><a href="{{ url_for('home') }}">Start</a></li>
-            <li><a href="{{ url_for('info') }}">info</a></li>
-            <li><a href="{{ url_for('sign_up') }}">Anmäl här</a></li>
-            <li><a href="{{ url_for('location') }}">Hitta hit</a></li>
-        </ul>
-    </nav>
-    </header>
+    <div class="header" id="myHeader">
+        <h1>Jonas & Hanna<br><datetime="2026-08-29">2026.08.29</time></h1>
+    </div>
