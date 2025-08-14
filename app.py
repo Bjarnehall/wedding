@@ -1,6 +1,15 @@
-from flask import Flask, render_template
+import sqlite3
+from flask import Flask, render_template, g
+import psycopg2
+import psycopg2.extras
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
+
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 @app.route("/")
 def home():
@@ -24,6 +33,20 @@ def location():
 def sign_up():
     return render_template(
         "sign_up.html"
+    )
+
+@app.route("/guest_list")
+def guest_list():
+    conn = psycopg2.connect(DATABASE_URL, sslmode="require")
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    cur.execute("SELECT * FROM guests")
+    guests = cur.fetchall()
+    cur.close()
+    conn.close()
+
+    return render_template(
+        "guest_list.html",
+        guests=guests
     )
 
 

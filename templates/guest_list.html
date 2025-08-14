@@ -1,0 +1,39 @@
+{% include 'header.html' %}
+{% include 'navsmall.html' %}
+
+    <h4>Anmälda gäster</h4>
+
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Namn</th>
+                <th>Telefon</th>
+                <th>Email</th>
+                <th>Mat</th>
+                <th>Fråga</th>
+                <th>Övernattning</th>
+                <th>Skapad</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for guest in guests %}
+            <tr>
+                <td>{{ guest.id }}</td>
+                <td>{{ guest.name }}</td>
+                <td>{{ guest.phone }}</td>
+                <td>{{ guest.email }}</td>
+                <td>{{ guest.food }}</td>
+                <td>{{ guest.question }}</td>
+                <td>{{ guest.sleepover }}</td>
+                <td>{{ guest.created_at }}</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+    </main>
+</body>
+</html>
