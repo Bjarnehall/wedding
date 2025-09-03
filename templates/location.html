@@ -7,15 +7,31 @@
         <div id="map"></div>
 
         <script>
-            var map = L.map('map').setView([51.505, -0.09], 13);
+
+            var lat = 57.8865817;
+            var lng = 13.6447219;
+
+            var map = L.map('map').setView([lat, lng], 9);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
+        var marker = L.marker([57.8715, 13.6351]).addTo(map);
+
+        marker.bindPopup("<b>Årås säteri</b><br>Välkommen hit!");
+
+        var markerChurch = L.marker([57.9108421, 13.6693662]).addTo(map);
+
+        markerChurch.bindPopup("<b>Kölingared Kyrka</b><br>Välkommen hit!");
+
+        markerChurch.openPopup();
 
         </script>
+
+        <p>Kyrka: Kölingared 110, 565 93 Mullsjö</p>
+        <p>Årås kvarn: Årås 112 Kölingared, 523 75 Dalum</p>
     </main>
 </body>
 </html>

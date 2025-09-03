@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, render_template, g
+from flask import Flask, render_template, g, request
 import psycopg2
 import psycopg2.extras
 import os
@@ -33,6 +33,21 @@ def location():
 def sign_up():
     return render_template(
         "sign_up.html"
+    )
+
+@app.route("/sign_up_server", methods=["POST"])
+def sign_up_server():
+
+    name = request.form.get("fullname")
+    name_partner = request.form.get("partner_name")
+    email = request.form.get("email")
+
+    if name_partner:
+        name = f"{name} & {name_partner}"
+
+    return render_template(
+        "sign_up_valid.html",
+        name=name
     )
 
 @app.route("/guest_list")

@@ -1,42 +1,97 @@
 {% include 'header.html' %}
 {% include 'navsmall.html' %}
     <div class="text-area">
-        <h2>Anmäl dig här</h2>
 
-        <form>
-            <label for="namn">Namn: <small>Person &amp; Eventuell partner</small></label><br>
-            <input type="text" id="namn" name="namn"><br>
+        <form action="/sign_up_server" method="POST">
+            <fieldset>
+                <legend>Anmäl dig till vårt bröllop genom att fylla i
+                    formuläret nedan.</legend>
+                
+                <ol>
+                    <li><label for="name">Namn</label><br>
+                        <input type="text" name="fullname" id="name">
+                    </li>
 
-            <label for="namn">Allergi / specialkost</label><br>
-            <input type="text" id="namn" name="namn"><br>
+                    <li>
+                        <label>
+                            <input type="checkbox" id="bring_partner" name="bring_partner">
+                            Jag tar med en partner
+                        </label>
+                    </li>
 
-            <label for="namn">Övriga frågor / upplysningar</label><br>
-            <input type="text" id="namn" name="namn"><br>
-            
-            <p>Önskar övernatta:
-            <input type="radio" id="jag kommer" name="answer" value="jag kommer">
-            <label for="jag kommer">Ja</label>
+                    <li id="partner_name_field" style="display:none;">
+                        <label for="partner_name">Partners namn</label><br>
+                        <input type="text" name="partner_name" id="partner_name">
+                    </li>
 
-            <input type="radio" id="kommer inte" name="answer" value="kommer inte">
-            <label for="kommer inte">Nej</label><br>
+                    <li><label for="email">Email</label><br>
+                        <input type="text" name="email" id="email">
+                    </li>
 
-            <p>Önskar ställplats:
-            <input type="radio" id="jag kommer" name="answer" value="jag kommer">
-            <label for="jag kommer">Ja</label>
+                    <li><label for="phone">telefon-nummer</label><br>
+                        <input type="text" name="phone" id="phone">
+                    </li>
 
-            <input type="radio" id="kommer inte" name="answer" value="kommer inte">
-            <label for="kommer inte">Nej</label><br>
+                    <p>Har du några allegier, specialkost eller annat vi borde veta?</p>
+                    <li>
+                        <label>
+                            <input type="checkbox" id="special" name="special">
+                            Ja
+                        </label>
+                    </li>
 
-            <h2>Jag ska bli helt jävla sketfull!!!:</h2>
-            <input type="radio" id="jag kommer" name="answer" value="jag kommer">
-            <label for="jag kommer">Ja</label>
+                    <li id="special_field" style="display:none;">
+                        <label for="special_field">Berätta</label><br>
+                        <input type="text" name="special_field" id="special_field">
+                    </li>
 
-            <input type="radio" id="kommer inte" name="answer" value="kommer inte">
-            <label for="kommer inte">Nej</label><br>
+                    <p>Önskar du övernatta på Åråskvarn?</p>
+                    <li>
+                        <label>
+                            <input type="checkbox" id="sleep_over" name="sleep_over">
+                            Ja
+                        </label>
+                    </li>
 
-            <input type="submit" value="Skicka">
+                    <li id="sleep_over_field" style="display:none;">
+                        <p>Vi har abbonerat ett vandrar hem på Åråskvarn om 28 bäddar
+                            uppdelade i rum om 2-6 bäddar. Om ni önskar övernatta här kostar
+                            det 450kr per person inklusive sängkläder och frukost. Det är först
+                            till kvarn som gäller och vi som värdar delar upp bäddar efter bekantskapskrets.
+                            <br>
+                            Det finns även två stycken ställplatser för Van/Husbil kostnadsfritt. Även här
+                            först till kvarn.
+                        </p>
+                        <label for="sleep_over_field">Ange antal personer och önskat boende</label><br>
+                        <input type="text" name="sleep_over_field" id="sleep_over_field">
+                    </li>
+                    
+
+                </ol>
+                <input class="submit-button" type="submit" value="Skicka">
+            </fieldset>
         </form>
     </div>
+
+    <script>
+
+        document.getElementById("bring_partner").addEventListener("change", function() {
+            const partnerField = document.getElementById("partner_name_field");
+            partnerField.style.display = this.checked ? "block" : "none";
+        });
+
+        document.getElementById("special").addEventListener("change", function() {
+            const specialField = document.getElementById("special_field");
+            specialField.style.display = this.checked ? "block" : "none";
+        });
+
+        document.getElementById("sleep_over").addEventListener("change", function() {
+            const sleepField = document.getElementById("sleep_over_field");
+            sleepField.style.display = this.checked ? "block" : "none";
+        });
+
+    </script>
+
     </main>
 </body>
 </html>
