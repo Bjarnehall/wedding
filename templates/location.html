@@ -1,15 +1,16 @@
 {% include 'header.html' %}
 {% include 'navsmall.html' %}
 
+    <div class="textkarta">
     <h4>Hitta Hit</h4>
         <p>Kölingareds kyrka och Årås säteri ligger mellan Mullsjö och Ulricehamn. Från kyrkan till Årås är det circa 5 minuter med bil.</p>
-
+    <div/>
         <div id="map"></div>
 
         <script>
 
-            var lat = 57.8865817;
-            var lng = 13.6447219;
+            var lat = 57.885344;
+            var lng = 13.648571;
 
             var map = L.map('map').setView([lat, lng], 9);
 
@@ -18,11 +19,11 @@
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
-        var marker = L.marker([57.8715, 13.6351]).addTo(map);
+        var marker = L.marker([57.885344, 13.648571]).addTo(map);
 
         marker.bindPopup("<b>Årås säteri</b><br>Välkommen hit!");
 
-        var markerChurch = L.marker([57.9108421, 13.6693662]).addTo(map);
+        var markerChurch = L.marker([57.90956, 13.668342]).addTo(map);
 
         markerChurch.bindPopup("<b>Kölingared Kyrka</b><br>Välkommen hit!");
 

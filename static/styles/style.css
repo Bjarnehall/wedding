@@ -190,3 +190,17 @@ hr {
     font-size: 1.25em;
 }
 
+.vandrarhem a {
+    font-size: 1.25rem;
+    color: rgb(53, 150, 101);
+    text-decoration: underline;
+}
+
+.textkarta {
+    margin-top: -2rem;
+    padding: 1rem;
+}
+
+.textkarta h4, p {
+    padding-left: 1rem;
+}
