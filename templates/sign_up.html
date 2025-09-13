@@ -75,6 +75,11 @@
 
     <script>
 
+        {% if show_alert == "true" %}
+            window.alert("Du måste fylla i namn, samt telefonnummer och eller mejl-adress!")
+        {% endif %}
+
+
         document.getElementById("bring_partner").addEventListener("change", function() {
             const partnerField = document.getElementById("partner_name_field");
             partnerField.style.display = this.checked ? "block" : "none";

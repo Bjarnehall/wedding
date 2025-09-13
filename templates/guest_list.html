@@ -1,17 +1,14 @@
 {% include 'header.html' %}
-{% include 'navsmall.html' %}
 
-    <h4>Anmälda gäster</h4>
 
-    <table border="1" cellpadding="5" cellspacing="0">
+    <table>
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Namn</th>
                 <th>Telefon</th>
                 <th>Email</th>
-                <th>Mat</th>
-                <th>Fråga</th>
+                <th>Special</th>
                 <th>Övernattning</th>
                 <th>Skapad</th>
             </tr>
@@ -22,11 +19,10 @@
             <tr>
                 <td>{{ guest.id }}</td>
                 <td>{{ guest.name }}</td>
-                <td>{{ guest.phone }}</td>
+                <td>{{ guest.phone_number }}</td>
                 <td>{{ guest.email }}</td>
-                <td>{{ guest.food }}</td>
-                <td>{{ guest.question }}</td>
-                <td>{{ guest.sleepover }}</td>
+                <td>{{ guest.special_request }}</td>
+                <td>{{ guest.sleep_over }}</td>
                 <td>{{ guest.created_at }}</td>
             </tr>
 

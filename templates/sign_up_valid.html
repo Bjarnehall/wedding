@@ -2,7 +2,14 @@
 {% include 'navsmall.html' %}
     <div class="text-area">
         <h2>Välkommen {{ name }}</h2>
-    </div>
+        <ul>
+            <li>Namn: {{ name }}</li>
+            <li>Email: {{ email }}</li>
+            <li>Telefon: {{ phone_number }}</li>
+            <li>Special kost: {{ special_request }}</li>
+            <li>Övernattning: {{ sleep_over }}</li>
+        </ul>
+        </div>
     </main>
 </body>
 </html>

@@ -1,8 +1,10 @@
 
     <div class="nav" id="fullnav">
         <ul>
-            <button><li><a href="{{ url_for('info') }}">Info</a></li></button><br>
-            <button><li><a href="{{ url_for('sign_up') }}">Anmäl här</a></li></button><br>
-            <button><li><a href="{{ url_for('location') }}">Hitta hit</a></li></button>
+            <button class="navbutton" onclick="window.location='/information';">Info</button><br>
+            <button class="navbutton" onclick="window.location='/sign_up';">Anmäl här</button><br>
+            <button class="navbutton" onclick="window.location='/location';">Hitta hit</button><br>
+
+
         </ul>
     </div>

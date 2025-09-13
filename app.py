@@ -41,13 +41,42 @@ def sign_up_server():
     name = request.form.get("fullname")
     name_partner = request.form.get("partner_name")
     email = request.form.get("email")
+    phone_number = request.form.get("phone")
+    special_request = request.form.get("special_field")
+    sleep_over = request.form.get("sleep_over_field")
+
+    if special_request == "":
+        special_request = "Nej"
+
+    if sleep_over == "":
+        sleep_over = "Nej"
+    
+    if name == "" or (email == "" and phone_number == ""):
+        return render_template("sign_up.html", show_alert="true")
 
     if name_partner:
         name = f"{name} & {name_partner}"
 
+    conn = psycopg2.connect(DATABASE_URL, sslmode="require")
+    cur = conn.cursor()
+    cur.execute(
+        """
+        INSERT INTO guests (name, email, phone_number, special_request, sleep_over)
+        VALUES (%s, %s, %s, %s, %s)
+        """,
+        (name, email, phone_number, special_request, sleep_over)
+    )
+    conn.commit()
+    cur.close()
+    conn.close()
+
     return render_template(
         "sign_up_valid.html",
-        name=name
+        name=name,
+        email=email,
+        phone_number=phone_number,
+        special_request=special_request,
+        sleep_over=sleep_over
     )
 
 @app.route("/guest_list")
